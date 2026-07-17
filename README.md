@@ -5,6 +5,8 @@ deploy frequency, build success rate, and top contributors — visualised with D
 
 ![stack](https://img.shields.io/badge/stack-React%20·%20D3%20·%20FastAPI%20·%20ClickHouse-10b981)
 
+**▶ [Try the live demo](https://portfoliowassim.vercel.app/demo/devpulse)** — runs right in your browser, no setup.
+
 ## Stack
 
 | Tier | Tech |
