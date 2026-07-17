@@ -2,6 +2,8 @@
 
 Real-time engineering metrics over a ClickHouse event stream: team velocity,
 deploy frequency, build success rate, and top contributors — visualised with D3.
+Every metric can be sliced **per repository** via the filter in the top bar
+(`?repo=` on every endpoint, parameterized in ClickHouse).
 
 ![stack](https://img.shields.io/badge/stack-React%20·%20D3%20·%20FastAPI%20·%20ClickHouse-10b981)
 

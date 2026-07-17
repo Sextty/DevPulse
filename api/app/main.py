@@ -37,21 +37,26 @@ def health() -> dict:
     return {"status": "ok"}
 
 
+@app.get("/api/repos", response_model=list[str])
+def get_repos() -> list[str]:
+    return analytics.repos()
+
+
 @app.get("/api/summary", response_model=Summary)
-def get_summary() -> dict:
-    return analytics.summary()
+def get_summary(repo: str | None = None) -> dict:
+    return analytics.summary(repo)
 
 
 @app.get("/api/velocity", response_model=list[VelocityPoint])
-def get_velocity() -> list[dict]:
-    return analytics.velocity()
+def get_velocity(repo: str | None = None) -> list[dict]:
+    return analytics.velocity(repo)
 
 
 @app.get("/api/deploys", response_model=list[DeployPoint])
-def get_deploys() -> list[dict]:
-    return analytics.deploy_frequency()
+def get_deploys(repo: str | None = None) -> list[dict]:
+    return analytics.deploy_frequency(repo)
 
 
 @app.get("/api/authors", response_model=list[AuthorStat])
-def get_authors() -> list[dict]:
-    return analytics.top_authors()
+def get_authors(repo: str | None = None) -> list[dict]:
+    return analytics.top_authors(repo=repo)

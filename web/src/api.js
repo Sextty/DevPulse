@@ -6,9 +6,13 @@ async function get(path) {
   return res.json();
 }
 
+const withRepo = (path, repo) =>
+  repo ? `${path}?repo=${encodeURIComponent(repo)}` : path;
+
 export const api = {
-  summary: () => get("/summary"),
-  velocity: () => get("/velocity"),
-  deploys: () => get("/deploys"),
-  authors: () => get("/authors"),
+  repos: () => get("/repos"),
+  summary: (repo) => get(withRepo("/summary", repo)),
+  velocity: (repo) => get(withRepo("/velocity", repo)),
+  deploys: (repo) => get(withRepo("/deploys", repo)),
+  authors: (repo) => get(withRepo("/authors", repo)),
 };
